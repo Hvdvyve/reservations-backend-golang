@@ -14,6 +14,7 @@ require (
 	github.com/jonboulle/clockwork v0.1.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/prometheus/tsdb v0.7.1 // indirect
+	github.com/ravendb/ravendb-go-client v0.0.0-20211216091640-28d80f3bf396 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/soheilhy/cmux v0.1.4 // indirect

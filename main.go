@@ -15,8 +15,35 @@ limitations under the License.
 */
 package main
 
-import "github.com/gitpod/mycli/cmd"
+import (
+	"crypto/tls"
+	"crypto/x509"
+	"github.com/gitpod/mycli/cmd"
+	ravendb "github.com/ravendb/ravendb-go-client"
+)
 
 func main() {
 	cmd.Execute()
+}
+
+func getDocumentStore(databaseName string) (*ravendb.DocumentStore, error) {
+	cerPath := "admin.client.certificate.reservationdata.crt"
+	keyPath := "admin.client.certificate.reservationdata.key"
+	serverNodes := []string{"https://a.reservationdata.ravendb.community/studio/index.html"}
+
+	cer, err := tls.LoadX509KeyPair(cerPath, keyPath)
+	if err != nil {
+		return nil, err
+	}
+	store := ravendb.NewDocumentStore(serverNodes, databaseName)
+	store.Certificate = &cer
+	x509cert, err := x509.ParseCertificate(cer.Certificate[0])
+	if err != nil {
+		return nil, err
+	}
+	store.TrustStore = x509cert
+	if err := store.Initialize(); err != nil {
+		return nil, err
+	}
+	return store, nil
 }
