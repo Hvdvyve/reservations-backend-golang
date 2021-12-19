@@ -1,4 +1,4 @@
-package Reservations
+package reservation
 
 // Describes a Consumable
 type Consumable struct {

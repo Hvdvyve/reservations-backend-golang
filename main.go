@@ -25,8 +25,7 @@ import (
 	"github.com/gitpod/mycli/cmd"
 	"github.com/kr/pretty"
 	ravendb "github.com/ravendb/ravendb-go-client"
-
-	"./reservations"
+	"github.com/gitpod/mycli/Reservations"
 )
 
 var (
@@ -49,6 +48,9 @@ var (
 
 func main() {
 	cmd.Execute()
+	getDocumentStore(dbName);
+	openSession(dbName);
+	queryCollectionByName()
 }
 
 func getDocumentStore(databaseName string) (*ravendb.DocumentStore, error) {
@@ -117,10 +119,10 @@ func queryCollectionByName() {
 	defer store.Close()
 	defer session.Close()
 
-	q := session.QueryCollection("employees")
+	q := session.QueryCollection("Consumables")
 	printRQL(q)
 
-	var results []*Reservations.Consumable
+	var results []*reservation.Consumable
 	err = q.GetResults(&results)
 	if err != nil {
 		log.Fatalf("q.GetResults() failed with '%s'\n", err)
