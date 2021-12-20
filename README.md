@@ -1,5 +1,8 @@
 # Golang backend
 
+Backend for the main app.
+
+
 ## Deploy project
 
 ### Use Gitpod
