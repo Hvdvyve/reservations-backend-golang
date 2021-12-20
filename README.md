@@ -1,21 +1,5 @@
-# A Golang CLI template on Gitpod
+1. Open the repo link https://gitpod.io/start/#brown-goat-rv74h8q0
+2. On the left, go to "run & debug" and click on "Run and Debug" to test and deploy the code.
 
-This is a [Golang CLI](https://golang.org) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
-
-## Next Steps
-
-Click the button below to start a new development environment:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/template-golang-cli)
-
-## Get Started With Your Own Project
-
-### A new project
-
-Click the above "Open in Gitpod" button to start a new workspace. Once you're ready to push your first code changes, Gitpod will guide you to fork this project so you own it.
-
-### An existing project
-
-To get started with Golang CLI on Gitpod, add a [`.gitpod.yml`](./.gitpod.yml) file which contains the configuration to improve the developer experience on Gitpod. To learn more, please see the [Getting Started](https://www.gitpod.io/docs/getting-started) documentation.
-
-This has to work.
+Extra info:
+All the code we've written is inside of main.go and Reservations/definitions.go
